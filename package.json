@@ -1,0 +1,18 @@
+{
+  "name": "file-browser",
+  "version": "0.1.0",
+  "description": "File browser plugin for directory listing in Grav websites.",
+  "scripts": {
+    "css-build": "node-sass --source-map true --source-map-embed true --recursive --output css-compiled scss/file-browser.scss",
+    "css-deploy": "npm run css-build -- --output-style compressed --omit-source-map-url  && npm run css-postcss",
+    "css-postcss": "postcss --use autoprefixer --no-map --output css-compiled/file-browser.css css-compiled/file-browser.css",
+    "css-watch": "npm run css-build -- --watch"
+  },
+  "author": "Nathan Parsons",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^9.6.0",
+    "node-sass": "^4.12.0",
+    "postcss-cli": "^6.1.2"
+  }
+}

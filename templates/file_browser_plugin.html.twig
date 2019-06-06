@@ -1,0 +1,94 @@
+{% import "macros/file_browser.twig" as macros %}
+
+{% set plugin_config = attribute(config.plugins, 'file-browser') %}
+
+{% set base = plugin_config.base_to_extend|default('partials/base.html.twig') %}
+{% extends base %}
+
+
+{% do assets.addJs("plugins://file-browser/js/file-browser.js") %}
+
+{# Load plugin and page configurations #}
+{% set plugin_config = attribute(config.plugins, 'file-browser') %}
+{% set page_config = page.header.file_browser|default({}) %}
+
+{% set default_config = {
+  "default_view": "tile",
+  "load_font_awesome": true,
+  "built_in_css": true,
+  "use_alt_arrows": false,
+  "show_thumbnails": true,
+  "icon_weight": "fas"
+} %}
+
+{% set options = default_config|merge(plugin_config)|merge(page_config) %}
+
+
+{# Load assets #}
+{% if options["built_in_css"] %}
+  {% do assets.addCss("plugins://file-browser/css-compiled/file-browser.css") %}
+{% endif %}
+
+{% if options["load_font_awesome"] %}
+  {# Below kit provides the latest Font Awesome Free as webfonts #}
+  {% do assets.addJs("https://kit.fontawesome.com/eaea0eb975.js") %}
+{% endif %}
+
+{# Set icon styles #}
+{% if options["use_alt_arrows"] %}
+  {% set back_arrow = options["icon_weight"]~" fa-arrow-alt-left" %}
+  {% set forward_arrow = options["icon_weight"]~" fa-arrow-alt-right" %}
+  {% set up_arrow = options["icon_weight"]~" fa-arrow-alt-up" %}
+
+{% else %}
+  {% set back_arrow = options["icon_weight"]~" fa-arrow-left" %}
+  {% set forward_arrow = options["icon_weight"]~" fa-arrow-right" %}
+  {% set up_arrow = options["icon_weight"]~" fa-arrow-up" %}
+
+{% endif %}
+
+{% set view_tile = options["icon_weight"]~" fa-th-large" %}
+{% set view_list = options["icon_weight"]~" fa-list" %}
+
+{# Set up additional classes for view types #}
+{% if options["default_view"] is same as("list") %}
+  {% set browser_variant = " list-view" %}
+  {% set view_list = view_list~" is-active" %}
+{% else %}
+  {% set browser_variant = "" %}
+  {% set view_tile = view_tile~" is-active" %}
+{% endif %}
+
+
+
+{% block content %}
+
+{{ content|raw }}
+
+<div class="file-browser{{ browser_variant }}">
+
+  <div class="controls">
+    <div class="navigation">
+      <i class="button {{ back_arrow }}" id="file-nav-back" title="Navigate back"></i>
+      <i class="button {{ forward_arrow }}" id="file-nav-forward" title="Navigate forward"></i>
+      <i class="button {{ up_arrow }}" id="file-nav-up" title="Navigate up"></i>
+    </div>
+    <div class="view">
+      <i class="button {{ view_tile }}" title="Tile view" id="tile-view"></i>
+      <i class="button {{ view_list }}" title="List view" id="list-view"></i>
+    </div>
+  </div>
+
+  <div class="address-bar">
+    <span id="file-address-bar">/</span>
+  </div>
+
+  {% if fileBrowserContent is iterable %}
+    {{ macros.folderContents(fileBrowserContent, options) }}
+  {% else %}
+    Error: {{ fileBrowserContent }}
+  {% endif %}
+
+</div>
+
+{% endblock %}

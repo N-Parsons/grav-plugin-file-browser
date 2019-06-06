@@ -1,0 +1,111 @@
+{% macro folderContents(content, options = {}, folderId = "rootFolder", parentId = "", folderDepth = 0) %}
+  {% import _self as self %}
+
+  {% set iconWeight = options["icon_weight"]|default("fas") %}
+  {% set showThumbnails = options["show_thumbnails"]|default(false) %}
+  
+  {% if parentId %}
+    {% set browserClass = "browser" %}
+  {% else %}
+    {% set browserClass = "browser is-active" %}
+  {% endif %}
+
+  {% if parentId %}
+    {% set browserId = parentId ~ "---" ~ folderId %}
+  {% else %}
+    {% set browserId = folderId %}
+  {% endif %}
+
+  {% set subfolders = [] %}
+
+  <div class="{{ browserClass }}" id="{{ browserId }}">
+
+  {% for item in content %}
+    {% set name = item[0] %}
+    {% set content = item[1] %}
+
+    {% if content is iterable %}
+      {% set folderId = self.getFolderId(name, folderDepth)|trim %}
+      {% set subfolders = subfolders|merge([[folderId, content]]) %}
+      
+      {{ self.folderItem(name, folderId) }}
+    
+    {% else %}
+      {{ self.fileItem(name, content, options) }}
+    
+    {% endif %}
+
+  {% endfor %}
+
+  </div>
+
+  {% for item in subfolders %}
+    {% set folderId = item[0] %}
+    {% set content = item[1] %}
+
+    {{ self.folderContents(content, options, folderId, browserId, folderDepth + 1) }}
+  {% endfor %}
+
+{% endmacro %}
+
+{% macro getFolderId(name, depth) %}
+  {% set unsafeChars = {" ":"_", ".":"-", "+":"_", "'":"-"} %}
+  {% set idSafeName = name|replace(unsafeChars) %}
+  {% set folderId = idSafeName %}
+  {% for i in range(0, depth) %}
+    {% set folderId = "_"~folderId~ "_" %}
+  {% endfor %}
+
+  {{ folderId }}
+{% endmacro %}
+
+
+{% macro folderItem(name, folderId) %}
+  <div class="item">
+    <div class="folder" id="{{ folderId }}">
+      <i class="fas fa-folder"></i>
+      <span>{{ name }}</span>
+    </div>
+  </div>
+{% endmacro %}
+
+
+{% macro fileItem(name, url, options = {}) %}
+  {% set iconWeight = options["icon_weight"]|default("fas") %}
+  {% set showThumbnails = options["show_thumbnails"]|default(false) %}
+  {% set thumbnailTypes = options["thumbnail_types"]|default("") %}
+
+  {% set pathInfo = pathinfo(url) %}
+  {% set extension = pathInfo["extension"] %}
+  {% set dirName = pathInfo["dirname"] %}
+  {% set baseName = pathInfo["basename"] %}
+
+  {% set fileIconDefault = options["file_icon_default"] %}
+  {% set extensionSpecific = options["file_icons_specific"] %}
+  {% set fileIconTypes = options["file_icon_types"] %}
+
+  {# Set fileIcon to the default #}
+  {% set fileIcon = fileIconDefault %}
+
+  {# Update it if necessary #}
+  {% for icon, extensions in fileIconTypes %}
+    {# 'map' doesn't work in Twig < 1.41 (Grav 1.6.9) - not sure whether there's a performance difference #}
+    {#% if extension in fileTypes|split(",")|map(x => x|trim) %#}
+    {% if extension in extensions|replace({" ": ""})|split(",") %}
+      {% set fileIcon = icon %}
+    {% endif %}
+  {% endfor %}
+
+  <div class="item">
+    <a class="file" href="{{ url }}" target="_blank">
+
+      {% if showThumbnails and extension in thumbnailTypes|replace({" ": ""})|split(",") %} {# as above re: 'map' #}
+        {{ ("![](/"~url~"?cropResize(100,100))")|markdown }}
+      {% else %}
+        <i class="{{ iconWeight }} {{ fileIcon }}"></i>
+      {% endif %}
+
+      <span>{{ name }}</span>
+    </a>
+  </div>
+{% endmacro %}

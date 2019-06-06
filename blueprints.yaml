@@ -1,0 +1,137 @@
+name: File Browser
+version: 0.1.0
+description: File browser plugin providing directory listing
+icon: folder
+author:
+  name: Nathan Parsons
+  email: nathan@tantalum.blue
+  url: https://tantalum.blue
+homepage: https://github.com/N-Parsons/grav-plugin-file-browser
+keywords: grav, plugin, files, directory, file browser, directory listing
+bugs: https://github.com/N-Parsons/grav-plugin-file-browser/issues
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    built_in_css:
+      type: toggle
+      label: PLUGIN_FILE_BROWSER.BUILTIN_CSS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    load_font_awesome:
+      type: toggle
+      label: PLUGIN_FILE_BROWSER.LOAD_FONT_AWESOME
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    source:
+      type: text
+      label: PLUGIN_FILE_BROWSER.DEFAULT_SOURCE
+      default: "user://files"
+    default_view:
+      type: select
+      label: PLUGIN_FILE_BROWSER.DEFAULT_VIEW
+      default: "tile"
+      options:
+        "tile": PLUGIN_FILE_BROWSER.TILE_VIEW
+        "list": PLUGIN_FILE_BROWSER.LIST_VIEW
+    show_thumbnails:
+      type: toggle
+      label: PLUGIN_FILE_BROWSER.SHOW_THUMBNAILS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    thumbnail_types:
+      type: text
+      label: PLUGIN_FILE_BROWSER.THUMBNAIL_TYPES
+      help: PLUGIN_FILE_BROWSER.THUMBNAIL_TYPES_HELP
+      default: "png, jpg, jpeg, gif, bmp, svg"
+    base_to_extend:
+      type: text
+      label: PLUGIN_FILE_BROWSER.BASE_TO_EXTEND
+      placeholder: "partials/base.html.twig"
+    show_hidden_files:
+      type: toggle
+      label: PLUGIN_FILE_BROWSER.SHOW_HIDDEN_FILES
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    fontawesome_pro:
+      type: section
+      title: PLUGIN_FILE_BROWSER.FONT_AWESOME_PRO
+      fields:
+        use_alt_arrows:
+          type: toggle
+          label: PLUGIN_FILE_BROWSER.USE_ALT_ARROWS
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        icon_weight:
+          type: select
+          label: PLUGIN_FILE_BROWSER.ICON_WEIGHT
+          default: "fas"
+          options:
+            "fas": PLUGIN_FILE_BROWSER.ICON_WEIGHT_FAS
+            "far": PLUGIN_FILE_BROWSER.ICON_WEIGHT_FAR
+            "fal": PLUGIN_FILE_BROWSER.ICON_WEIGHT_FAL
+    file_icons:
+      type: section
+      title: PLUGIN_FILE_BROWSER.FILE_ICONS
+      fields:
+        file_icon_default:
+          type: text
+          label: PLUGIN_FILE_BROWSER.FILE_ICON_DEFAULT
+          default: "fa-file-alt"
+        file_icons_specific:
+          type: toggle
+          label: PLUGIN_FILE_BROWSER.FILE_ICONS_SPECIFIC
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        file_icon_types:
+          type: array
+          label: PLUGIN_FILE_BROWSER.FILE_ICON_TYPES
+          default:
+            "fa-file-word": "doc, docx, odt, rtf"
+            "fa-file-csv": "csv"
+            "fa-file-excel": "xls, xlsx, ods"
+            "fa-file-powerpoint": "ppt, pps, pptx, ppsx, odp"
+            "fa-file-archive": "zip"
+            "fa-file-video": "mp4, mov"
+            "fa-file-audio": "mp3, ogg, wav"

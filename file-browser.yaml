@@ -1,0 +1,21 @@
+enabled: true
+built_in_css: true
+load_font_awesome: false
+default_view: tile
+base_to_extend: partials/base.html.twig
+source: 'user://files'
+show_thumbnails: true
+thumbnail_types: 'png, jpg, jpeg, gif, bmp, svg'
+use_alt_arrows: true
+icon_weight: fas
+show_hidden_files: false
+file_icon_default: fa-file-alt
+file_icons_specific: true
+file_icon_types:
+  fa-file-word: 'doc, docx, odt, rtf'
+  fa-file-csv: csv
+  fa-file-excel: 'xls, xlsx, ods'
+  fa-file-powerpoint: 'ppt, pps, pptx, ppsx, odp'
+  fa-file-archive: zip
+  fa-file-video: 'mp4, mov'
+  fa-file-audio: 'mp3, ogg, wav'

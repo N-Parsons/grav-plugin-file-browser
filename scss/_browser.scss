@@ -1,0 +1,188 @@
+$hover-lighten-amount: 15%;
+
+.browser {
+  display: none;
+  
+  &.is-active {
+    display: flex;
+  }
+
+  flex-wrap: wrap;
+  
+  max-height: 75vh;
+  overflow-y: scroll;
+  //resize: vertical;
+  min-height: 200px;
+
+  margin-top: 0.5rem;
+  border: 1px solid #666;
+  border-radius: 6px;
+  background: #eee;
+
+  padding: 0.5rem;
+
+  color: #333;
+
+  .item {
+    width: 7.5rem;
+
+    padding: 1rem 0.5rem;
+
+    text-align: center;
+    overflow-wrap: break-word;
+
+  }
+
+  .folder, .file {
+    display: flex;
+    flex-direction: column;
+
+    cursor: pointer;
+
+    i {
+      display: block;
+      font-size: 4rem;
+    }
+
+    span {
+      margin-top: 0.5rem;
+      display: block;
+      line-height: 1.15;
+      font-weight: normal;
+      color: #333;
+    }
+
+    &:hover span {
+      color: lighten(#333, $hover-lighten-amount);
+    }
+
+    &:hover img {
+      filter: opacity(0.75);
+      //filter: brightness(115%);
+    }
+  }
+
+  .file {
+    p {
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+    }
+    img {
+      max-height: 4rem;
+      max-width: 7rem;
+    }
+  }
+}
+
+
+// File type colours
+@mixin file-color($icon, $color) {
+  .file {
+    #{$icon} {
+      color: $color;
+    }
+  
+    &:hover #{$icon} {
+      color: lighten($color, $hover-lighten-amount);
+    }
+  }
+}
+
+// -- Generic files and folders
+$file-folder-color: #555;
+
+.folder {
+  .fa-folder {
+    color: $file-folder-color;
+  }
+
+  &:hover .fa-folder {
+    color: lighten($file-folder-color, $hover-lighten-amount);
+  }
+}
+@include file-color(".fa-file-alt", $file-folder-color);
+@include file-color(".fa-file-csv", $file-folder-color);
+@include file-color(".fa-file-image", $file-folder-color);
+@include file-color(".fa-file-archive", $file-folder-color);
+
+// -- Specific file formats
+@include file-color(".fa-file-pdf", #eb1d0f);
+@include file-color(".fa-file-word", #2b579a);
+@include file-color(".fa-file-powerpoint", #b7472a);
+@include file-color(".fa-file-excel", #217346);
+
+
+
+
+// List view
+&.list-view .browser {
+  display: none;
+  
+  &.is-active {
+    display: flex;
+  }
+
+  flex-wrap: nowrap;
+  flex-direction: column;  
+
+  margin-top: 0.5rem;
+  border: 1px solid #666;
+  border-radius: 6px;
+  background: #eee;
+
+  padding: 0rem;
+
+  color: #333;
+
+  .item {
+    width: 100%;
+
+    padding: 0.5rem;
+
+    text-align: left;
+    overflow-wrap: break-word;
+
+    &:nth-child(2n) {
+      background: #e9e9e9;
+    }
+
+  }
+
+  .folder, .file {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    cursor: pointer;
+
+    i {
+      display: block;
+      font-size: 2rem;
+      width: 2rem;
+      margin-right: 0.5rem;
+      text-align: center;
+    }
+
+    span {
+      margin-top: 0rem;
+      display: block;
+      line-height: 1.15;
+      font-weight: normal;
+      color: #333;
+    }
+
+    &:hover span {
+      color: lighten(#333, $hover-lighten-amount);
+    }
+  }
+
+  .file {
+    img {
+      max-height: 2rem;
+      max-width: 2rem;
+      margin-right: 0.5rem;
+    }
+  }
+}
+

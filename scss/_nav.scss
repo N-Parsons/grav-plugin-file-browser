@@ -1,0 +1,64 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.controls .button {
+  padding: 0.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+
+  margin-left: 0.25rem;
+
+
+  font-size: 1.5rem;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+
+.navigation .button {
+  border: 1px solid #666;
+  background: white; //#eee;
+  cursor: default;
+
+  color: #999;
+
+  &.is-active {
+    background: white;
+    color: #333;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid black;
+      box-shadow: 0 0 3px #666;
+    }
+  }
+}
+
+.view .button {
+  border: 1px solid #666;
+  background: white;
+  cursor: pointer;
+
+  color: #333;
+
+  &:hover {
+    border: 1px solid black;
+    box-shadow: 0 0 3px #666;
+  }
+
+  &.is-active {
+    background: #ccc;
+    color: #999;
+    cursor: default;
+
+    &:hover {
+      border: 1px solid #666;
+      box-shadow: none;
+    }
+  }
+}
