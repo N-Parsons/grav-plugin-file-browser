@@ -59,4 +59,4 @@ file_browser:
 
 ## License
 
-MIT license. See [LICENSE](LICENSE.txt)
+MIT license. See [LICENSE](LICENSE)
