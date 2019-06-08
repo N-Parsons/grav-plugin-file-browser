@@ -39,7 +39,13 @@ By default, the plugin is configured to source files from `user://files`, which 
 
 ### Per-page configuration
 
-All configuration options can be overridden on a per-page basis simply by adding the same keys to the template page under a key called `file_browser:`.
+All configuration options can be overridden on a per-page basis simply by adding the same keys to the template page under a key called `file_browser:`. For example:
+
+```yaml
+title: Raw Pages
+file_browser:
+  source: "user://pages"
+```
 
 
 ## To Do
