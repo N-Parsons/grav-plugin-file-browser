@@ -1,16 +1,19 @@
 enabled: true
 built_in_css: true
 load_font_awesome: false
+source: 'user://files'
+show_hidden_files: false
 default_view: tile
 base_to_extend: partials/base.html.twig
-source: 'user://files'
-show_thumbnails: true
-thumbnail_types: 'png, jpg, jpeg, gif, bmp, svg'
+
 use_alt_arrows: true
 icon_weight: fas
-show_hidden_files: false
+
 file_icon_default: fa-file-alt
+show_thumbnails: true
+thumbnail_types: 'png, jpg, jpeg, gif, bmp, svg'
 file_icons_specific: true
+colourise_icons: true
 file_icon_types:
   fa-file-word: 'doc, docx, odt, rtf'
   fa-file-csv: csv
@@ -19,3 +22,5 @@ file_icon_types:
   fa-file-archive: zip
   fa-file-video: 'mp4, mov'
   fa-file-audio: 'mp3, ogg, wav'
+  fa-file-image: 'png, jpg, jpeg, gif, bmp, svg'
+  

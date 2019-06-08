@@ -48,32 +48,6 @@ form:
       type: text
       label: PLUGIN_FILE_BROWSER.DEFAULT_SOURCE
       default: "user://files"
-    default_view:
-      type: select
-      label: PLUGIN_FILE_BROWSER.DEFAULT_VIEW
-      default: "tile"
-      options:
-        "tile": PLUGIN_FILE_BROWSER.TILE_VIEW
-        "list": PLUGIN_FILE_BROWSER.LIST_VIEW
-    show_thumbnails:
-      type: toggle
-      label: PLUGIN_FILE_BROWSER.SHOW_THUMBNAILS
-      highlight: 1
-      default: 1
-      options:
-        1: PLUGIN_ADMIN.ENABLED
-        0: PLUGIN_ADMIN.DISABLED
-      validate:
-        type: bool
-    thumbnail_types:
-      type: text
-      label: PLUGIN_FILE_BROWSER.THUMBNAIL_TYPES
-      help: PLUGIN_FILE_BROWSER.THUMBNAIL_TYPES_HELP
-      default: "png, jpg, jpeg, gif, bmp, svg"
-    base_to_extend:
-      type: text
-      label: PLUGIN_FILE_BROWSER.BASE_TO_EXTEND
-      placeholder: "partials/base.html.twig"
     show_hidden_files:
       type: toggle
       label: PLUGIN_FILE_BROWSER.SHOW_HIDDEN_FILES
@@ -84,6 +58,17 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
+    default_view:
+      type: select
+      label: PLUGIN_FILE_BROWSER.DEFAULT_VIEW
+      default: "tile"
+      options:
+        "tile": PLUGIN_FILE_BROWSER.TILE_VIEW
+        "list": PLUGIN_FILE_BROWSER.LIST_VIEW
+    base_to_extend:
+      type: text
+      label: PLUGIN_FILE_BROWSER.BASE_TO_EXTEND
+      placeholder: "partials/base.html.twig"
     fontawesome_pro:
       type: section
       title: PLUGIN_FILE_BROWSER.FONT_AWESOME_PRO
@@ -114,6 +99,32 @@ form:
           type: text
           label: PLUGIN_FILE_BROWSER.FILE_ICON_DEFAULT
           default: "fa-file-alt"
+        colourise_icons:
+          type: toggle
+          label: PLUGIN_FILE_BROWSER.COLOURISE_ICONS
+          help: PLUGIN_FILE_BROWSER.COLOURISE_ICONS_HELP
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        show_thumbnails:
+          type: toggle
+          label: PLUGIN_FILE_BROWSER.SHOW_THUMBNAILS
+          highlight: 1
+          default: 1
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+        thumbnail_types:
+          type: text
+          label: PLUGIN_FILE_BROWSER.THUMBNAIL_TYPES
+          help: PLUGIN_FILE_BROWSER.THUMBNAIL_TYPES_HELP
+          default: "png, jpg, jpeg, gif, bmp, svg"
         file_icons_specific:
           type: toggle
           label: PLUGIN_FILE_BROWSER.FILE_ICONS_SPECIFIC

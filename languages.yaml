@@ -12,6 +12,8 @@ en:
     DEFAULT_VIEW: "Default view"
     TILE_VIEW: "Tile"
     LIST_VIEW: "List"
+    COLOURISE_ICONS: "Colourise icons"
+    COLOURISE_ICONS_HELP: "Add meaningful colours file icons, depending on their file types (eg. red for PDFs)"
     SHOW_THUMBNAILS: "Show thumbnails"
     THUMBNAIL_TYPES: "Thumbnail types"
     THUMBNAIL_TYPES_HELP: "Comma separated list of file-types to generate thumbnails for"
