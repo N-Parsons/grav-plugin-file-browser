@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
           $fileBrowser.querySelector('#' + browser.id).classList.remove('is-active');
 
           // Mark the folder target as active
-          let browserId = browser.id + idSeparator + folder.id;
+          let browserId = browser.id + idSeparator + folder.dataset.folderId;
           $fileBrowser.querySelector('#' + browserId).classList.add('is-active');
 
           // Get the folder name and path

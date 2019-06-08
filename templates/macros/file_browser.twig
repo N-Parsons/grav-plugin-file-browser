@@ -49,20 +49,16 @@
 {% endmacro %}
 
 {% macro getFolderId(name, depth) %}
-  {% set unsafeChars = {" ":"_", ".":"-", "+":"_", "'":"-"} %}
+  {% set unsafeChars = {" ":"___"} %}
   {% set idSafeName = name|replace(unsafeChars) %}
-  {% set folderId = idSafeName %}
-  {% for i in range(0, depth) %}
-    {% set folderId = "_"~folderId~ "_" %}
-  {% endfor %}
 
-  {{ folderId }}
+  {{ idSafeName }}
 {% endmacro %}
 
 
 {% macro folderItem(name, folderId) %}
   <div class="item">
-    <div class="folder" id="{{ folderId }}">
+    <div class="folder" data-folder-id="{{ folderId }}">
       <i class="fas fa-folder"></i>
       <span>{{ name }}</span>
     </div>

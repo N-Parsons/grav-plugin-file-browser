@@ -51,12 +51,17 @@
 {% set view_list = options["icon_weight"]~" fa-list" %}
 
 {# Set up additional classes for view types #}
+{% set browser_variant = "" %}
+
 {% if options["default_view"] is same as("list") %}
-  {% set browser_variant = " list-view" %}
+  {% set browser_variant = "list-view" %}
   {% set view_list = view_list~" is-active" %}
 {% else %}
-  {% set browser_variant = "" %}
   {% set view_tile = view_tile~" is-active" %}
+{% endif %}
+
+{% if options["colourise_icons"] %}
+  {% set browser_variant = browser_variant~" colourise" %}
 {% endif %}
 
 
