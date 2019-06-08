@@ -4,7 +4,7 @@
   "description": "File browser plugin for directory listing in Grav websites.",
   "scripts": {
     "css-build": "node-sass --source-map true --source-map-embed true --recursive --output css-compiled scss/file-browser.scss",
-    "css-deploy": "npm run css-build -- --output-style compressed --omit-source-map-url  && npm run css-postcss",
+    "css-deploy": "node-sass --output-style compressed --omit-source-map-url --output css-compiled scss/file-browser.scss  && npm run css-postcss",
     "css-postcss": "postcss --use autoprefixer --no-map --output css-compiled/file-browser.css css-compiled/file-browser.css",
     "css-watch": "npm run css-build -- --watch"
   },
