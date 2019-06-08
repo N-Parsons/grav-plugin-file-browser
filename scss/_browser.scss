@@ -2,13 +2,13 @@ $hover-lighten-amount: 15%;
 
 .browser {
   display: none;
-  
+
   &.is-active {
     display: flex;
   }
 
   flex-wrap: wrap;
-  
+
   max-height: 75vh;
   overflow-y: scroll;
   //resize: vertical;
@@ -30,7 +30,6 @@ $hover-lighten-amount: 15%;
 
     text-align: center;
     overflow-wrap: break-word;
-
   }
 
   .folder, .file {
@@ -78,53 +77,39 @@ $hover-lighten-amount: 15%;
 
 // File type colours
 @mixin file-color($icon, $color) {
-  .file {
+  .file, .folder {
     #{$icon} {
       color: $color;
     }
-  
+
     &:hover #{$icon} {
       color: lighten($color, $hover-lighten-amount);
     }
   }
 }
 
-// -- Generic files and folders
-$file-folder-color: #555;
+// -- Apply default file/folder colour
+@include file-color('[class*="fa-"]', #555);
 
-.folder {
-  .fa-folder {
-    color: $file-folder-color;
-  }
-
-  &:hover .fa-folder {
-    color: lighten($file-folder-color, $hover-lighten-amount);
-  }
+// -- Apply extension-specific colors
+&.colourise {
+  @include file-color(".fa-file-pdf", #eb1d0f);
+  @include file-color(".fa-file-word", #2b579a);
+  @include file-color(".fa-file-powerpoint", #b7472a);
+  @include file-color(".fa-file-excel", #217346);
 }
-@include file-color(".fa-file-alt", $file-folder-color);
-@include file-color(".fa-file-csv", $file-folder-color);
-@include file-color(".fa-file-image", $file-folder-color);
-@include file-color(".fa-file-archive", $file-folder-color);
-
-// -- Specific file formats
-@include file-color(".fa-file-pdf", #eb1d0f);
-@include file-color(".fa-file-word", #2b579a);
-@include file-color(".fa-file-powerpoint", #b7472a);
-@include file-color(".fa-file-excel", #217346);
-
-
 
 
 // List view
 &.list-view .browser {
   display: none;
-  
+
   &.is-active {
     display: flex;
   }
 
   flex-wrap: nowrap;
-  flex-direction: column;  
+  flex-direction: column;
 
   margin-top: 0.5rem;
   border: 1px solid #666;
@@ -153,6 +138,7 @@ $file-folder-color: #555;
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-content: center;
 
     cursor: pointer;
 
@@ -160,12 +146,12 @@ $file-folder-color: #555;
       display: block;
       font-size: 2rem;
       width: 2rem;
-      margin-right: 0.5rem;
       text-align: center;
     }
 
     span {
       margin-top: 0rem;
+      margin-left: 0.5rem;
       display: block;
       line-height: 1.15;
       font-weight: normal;
@@ -178,10 +164,17 @@ $file-folder-color: #555;
   }
 
   .file {
+
     img {
       max-height: 2rem;
       max-width: 2rem;
-      margin-right: 0.5rem;
+    }
+
+    p {
+      margin: auto 0;
+      width: 2rem;
+      max-height: 2rem;
+      text-align: center;
     }
   }
 }
