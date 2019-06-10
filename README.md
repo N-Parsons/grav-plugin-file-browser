@@ -4,9 +4,17 @@ The **File Browser plugin** for [Grav](http://github.com/getgrav/grav) is a high
 
 ![](assets/views-slim.png)
 
-## Manual installation
+## Installation
 
-Download zip version of this repository, unzip to `/your/site/grav/user/plugins` and rename directory to `file-browser`.
+The preferred method of installation is via the GPM, which makes it easy to keep the plugin up-to-date.
+
+```
+$ bin/gpm install file-browser
+```
+
+### Manual installation
+
+Alternatively, you can download the zip version of this repository, unzip to `/your/site/grav/user/plugins` and rename directory to `file-browser`.
 
 ## Configuration
 
