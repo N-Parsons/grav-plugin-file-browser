@@ -16,15 +16,24 @@ $ bin/gpm install file-browser
 
 Alternatively, you can download the zip version of this repository, unzip to `/your/site/grav/user/plugins` and rename directory to `file-browser`.
 
+## Usage
+
+To use this plugin, you need to create a page that uses the `file_browser_plugin.html.twig` template, which is referred to as "File browser plugin" in the Grav Admin panel. This will produce a page with the file browser embedded for your visitors to be able to use.
+
+File browser navigation is achieved via javascript, and views for all available folders exist as elements which are hidden via CSS. This gives a very immediate responsiveness to the file browser, and eliminates risk of code injection revealing files outside of those you have made available.
+
+If you want to be able to list vast numbers of files and folder, you may want to look at alternative solutions, since in this approach, the size of your webpage will scale with the total number of files and folders.
+
+
 ## Configuration
 
-By default, the plugin is configured to source files from `user://files`, which doesn't usually exist and will need to be created. Typically this will resolve to `user/files`, but if you're using a multi-site setup, it will resolve to `user/sites/{site-name}/files`.
+By default, the plugin is configured to source files from `user://files`, which doesn't usually exist and will need to be created. Typically this will resolve to `user/files`, but if you're using a multi-site setup, it will resolve to `user/sites/{site-name}/files`. You can configure the directory to be anywhere that is accessible via your PHP/webserver setup.
 
 ### Options
 
 - `enabled`: (bool) Plugin status.
 - `built_in_css`: (bool) Whether to load the built-in CSS.
-- `load_font_awesome`: (bool) Whether to load Font Awesome Free.
+- `load_font_awesome`: (bool) Whether to load Font Awesome Free on the file browser page.
 - `source`: (text) URI for file directory (eg. `user://files`).
 - `show_hidden_files`: (bool) Whether to show hidden files.
 - `default_view`: (`tile`/`list`) Default view for the file browser.
@@ -54,6 +63,8 @@ title: Raw Pages
 file_browser:
   source: "user://pages"
 ```
+
+This is mostly for people to be able to have multiple pages with browsers for different directories.
 
 
 ## To Do

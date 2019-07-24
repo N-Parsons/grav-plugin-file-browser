@@ -1,10 +1,10 @@
 name: File Browser
-version: 0.1.0
+version: 0.1.1
 description: File browser plugin providing directory listing
 icon: folder
 author:
   name: Nathan Parsons
-  email: nathan@tantalum.blue
+  email: github@tantalum.blue
   url: https://tantalum.blue
 homepage: https://github.com/N-Parsons/grav-plugin-file-browser
 keywords: grav, plugin, files, directory, file browser, directory listing
