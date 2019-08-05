@@ -175,18 +175,16 @@ $hover-lighten-amount: 15%;
   }
 
   .file {
-
-    img {
-      width: 100%; // Needed to get SVG to show in Chrome...
-      max-height: 2rem;
-      max-width: 2rem;
-    }
-
-    p {
+    .thumbnail {
       margin: auto 0;
       width: 2rem;
       max-height: 2rem;
       text-align: center;
+    }
+
+    img {
+      max-height: 2rem;
+      max-width: 2rem;
     }
   }
 }
