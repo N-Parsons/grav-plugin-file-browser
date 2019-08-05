@@ -1,3 +1,9 @@
+# v0.1.2
+##  05-08-2019
+
+1. [](#bugfix)
+    * Fix compatibility with Font Awesome via JS/SVG
+
 # v0.1.1
 ##  24-07-2019
 
