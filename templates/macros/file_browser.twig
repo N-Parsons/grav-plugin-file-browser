@@ -3,7 +3,7 @@
 
   {% set iconWeight = options["icon_weight"]|default("fas") %}
   {% set showThumbnails = options["show_thumbnails"]|default(false) %}
-  
+
   {% if parentId %}
     {% set browserClass = "browser" %}
   {% else %}
@@ -27,12 +27,12 @@
     {% if content is iterable %}
       {% set folderId = self.getFolderId(name, folderDepth)|trim %}
       {% set subfolders = subfolders|merge([[folderId, content]]) %}
-      
+
       {{ self.folderItem(name, folderId) }}
-    
+
     {% else %}
       {{ self.fileItem(name, content, options) }}
-    
+
     {% endif %}
 
   {% endfor %}
@@ -96,7 +96,9 @@
     <a class="file" href="{{ url }}" target="_blank">
 
       {% if showThumbnails and extension in thumbnailTypes|replace({" ": ""})|split(",") %} {# as above re: 'map' #}
-        {{ ("![](/"~url~"?cropResize(100,100))")|markdown }}
+        <div class="thumbnail">
+          {{ ("![](/"~url~"?cropResize(100,100))")|markdown|striptags("<img>")|raw }}
+        </div>
       {% else %}
         <i class="{{ iconWeight }} {{ fileIcon }}"></i>
       {% endif %}

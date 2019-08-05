@@ -74,13 +74,23 @@
 
   <div class="controls">
     <div class="navigation">
-      <i class="button {{ back_arrow }}" id="file-nav-back" title="Navigate back"></i>
-      <i class="button {{ forward_arrow }}" id="file-nav-forward" title="Navigate forward"></i>
-      <i class="button {{ up_arrow }}" id="file-nav-up" title="Navigate up"></i>
+      <div class="button" id="file-nav-back" title="Navigate back">
+        <i class="icon {{ back_arrow }}"></i>
+      </div>
+      <div class="button" id="file-nav-forward" title="Navigate forward">
+        <i class="icon {{ forward_arrow }}"></i>
+      </div>
+      <div class="button" id="file-nav-up" title="Navigate up">
+        <i class="icon {{ up_arrow }}"></i>
+      </div>
     </div>
     <div class="view">
-      <i class="button {{ view_tile }}" title="Tile view" id="tile-view"></i>
-      <i class="button {{ view_list }}" title="List view" id="list-view"></i>
+      <div class="button" id="tile-view">
+        <i class="icon {{ view_tile }}" title="Tile view"></i>
+      </div>
+      <div class="button" id="list-view">
+        <i class="icon {{ view_list }}" title="List view"></i>
+      </div>
     </div>
   </div>
 

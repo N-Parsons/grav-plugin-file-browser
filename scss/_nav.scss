@@ -11,8 +11,6 @@
   width: 2.5rem;
 
   margin-left: 0.25rem;
-
-
   font-size: 1.5rem;
 
   &:first-child {
@@ -51,15 +49,27 @@
     border: 1px solid black;
     box-shadow: 0 0 3px #666;
   }
+}
 
-  &.is-active {
-    background: #ccc;
-    color: #999;
-    cursor: default;
 
-    &:hover {
-      border: 1px solid #666;
-      box-shadow: none;
-    }
+&.list-view .button#list-view {
+  background: #ccc;
+  color: #999;
+  cursor: default;
+
+  &:hover {
+    border: 1px solid #666;
+    box-shadow: none;
+  }
+}
+
+&:not(.list-view) .button#tile-view {
+  background: #ccc;
+  color: #999;
+  cursor: default;
+
+  &:hover {
+    border: 1px solid #666;
+    box-shadow: none;
   }
 }

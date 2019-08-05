@@ -40,12 +40,17 @@ $hover-lighten-amount: 15%;
 
     cursor: pointer;
 
+    // Set font-size here to work with JS/SVG FA Icons
+    font-size: 4rem;
+
     i {
       display: block;
-      font-size: 4rem;
     }
 
     span {
+      // Set the text size here to get not be huge!
+      font-size: 1rem;
+
       margin-top: 0.5rem;
       display: block;
       line-height: 1.15;
@@ -59,16 +64,20 @@ $hover-lighten-amount: 15%;
 
     &:hover img {
       filter: opacity(0.75);
-      //filter: brightness(115%);
+    }
+
+    // Fix for FA icons via JS/SVG
+    .svg-inline--fa {
+      width: unset;
     }
   }
 
   .file {
-    p {
-      padding: 0;
-      margin: 0;
-      line-height: 1;
+    // Fix extra spacing around image
+    .thumbnail {
+      line-height: 0;
     }
+
     img {
       max-height: 4rem;
       max-width: 7rem;

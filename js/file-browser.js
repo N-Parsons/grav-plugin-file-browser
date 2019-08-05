@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const $addressBar = $fileBrowser.querySelector('#file-address-bar');
 
   // Get all "browser" elements
-  const $fileBrowsers = Array.prototype.slice.call($fileBrowser.querySelectorAll('.browser'), 0);
+  const $browserViews = Array.prototype.slice.call($fileBrowser.querySelectorAll('.browser'), 0);
 
   // Add click events to any view buttons
   if ( $viewButtons.length > 0 ) {
@@ -68,15 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add a click event on each of them
     $viewButtons.forEach( el => {
       el.addEventListener('click', () => {
-
-        // Remove is-active from all view buttons
-        $viewButtons.forEach( btn => {
-          btn.classList.remove("is-active");
-        });
-        
-        // Add "is-active" to the clicked button
-        el.classList.add("is-active");
-
         // Switch the mode
         if ( el.id === "list-view" ) {
           $fileBrowser.classList.add("list-view");
@@ -88,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Add click events to folders in each browser
-  $fileBrowsers.forEach( browser => {
-    
+  $browserViews.forEach( browser => {
+
     // Get a list of the folders in the browser
     $browserFolders = Array.prototype.slice.call(browser.querySelectorAll('.folder'), 0);
 
@@ -170,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set the address bar to the new path
     $addressBar.innerText = navHistory.currentPath();
-    
+
     // If the cursor has reached end, deactivate the button
     if ( navHistory.cursor === navHistory.history.length - 1 ) {
       $navForward.classList.remove('is-active');
