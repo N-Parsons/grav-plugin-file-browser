@@ -6,7 +6,7 @@ show_hidden_files: false
 default_view: tile
 base_to_extend: partials/base.html.twig
 
-use_alt_arrows: true
+use_alt_arrows: false
 icon_weight: fas
 
 file_icon_default: fa-file-alt
@@ -23,4 +23,3 @@ file_icon_types:
   fa-file-video: 'mp4, mov'
   fa-file-audio: 'mp3, ogg, wav'
   fa-file-image: 'png, jpg, jpeg, gif, bmp, svg'
-  
