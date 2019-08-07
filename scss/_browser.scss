@@ -47,7 +47,7 @@ $hover-lighten-amount: 15%;
       display: block;
     }
 
-    span {
+    .filename {
       // Set the text size here to get not be huge!
       font-size: 1rem;
 
@@ -58,7 +58,7 @@ $hover-lighten-amount: 15%;
       color: #333;
     }
 
-    &:hover span {
+    &:hover .filename {
       color: lighten(#333, $hover-lighten-amount);
     }
 
@@ -153,14 +153,14 @@ $hover-lighten-amount: 15%;
 
     cursor: pointer;
 
-    i {
+    i, .icon {
       display: block;
       font-size: 2rem;
       width: 2rem;
       text-align: center;
     }
 
-    span {
+    .filename {
       margin-top: 0rem;
       margin-left: 0.5rem;
       display: block;
@@ -169,7 +169,7 @@ $hover-lighten-amount: 15%;
       color: #333;
     }
 
-    &:hover span {
+    &:hover .filename {
       color: lighten(#333, $hover-lighten-amount);
     }
   }

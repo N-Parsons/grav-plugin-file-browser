@@ -96,11 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
           $fileBrowser.querySelector('#' + browserId).classList.add('is-active');
 
           // Get the folder name and path
-          let folderName = folder.getElementsByTagName('span')[0].innerText;
-          let folderPath =  navHistory.currentPath() + folderName + "/";
+          let folderName = folder.querySelector('.filename').innerText;
+          let folderPath = navHistory.currentPath() + folderName + "/";
 
           // Set the address bar content
           $addressBar.innerText = folderPath;
+          console.log(folderName);
 
           // Add to the nav history
           navHistory.append(browserId, folderPath);

@@ -60,7 +60,7 @@
   <div class="item">
     <div class="folder" data-folder-id="{{ folderId }}">
       <i class="fas fa-folder"></i>
-      <span>{{ name }}</span>
+      <span class="filename">{{ name }}</span>
     </div>
   </div>
 {% endmacro %}
@@ -103,7 +103,7 @@
         <i class="{{ iconWeight }} {{ fileIcon }}"></i>
       {% endif %}
 
-      <span>{{ name }}</span>
+      <span class="filename">{{ name }}</span>
     </a>
   </div>
 {% endmacro %}
