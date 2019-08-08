@@ -23,3 +23,4 @@ file_icon_types:
   fa-file-video: 'mp4, mov'
   fa-file-audio: 'mp3, ogg, wav'
   fa-file-image: 'png, jpg, jpeg, gif, bmp, svg'
+  fa-file-pdf: 'pdf'
