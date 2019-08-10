@@ -1,3 +1,9 @@
+# v0.1.3
+##  08-08-2019
+
+1. [](#improved)
+    * Improved robustness of file icons and names in the browser view.
+
 # v0.1.2
 ##  05-08-2019
 
