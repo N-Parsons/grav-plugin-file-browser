@@ -5,15 +5,15 @@ use \Grav\Common\Plugin;
 use \RocketTheme\Toolbox\Event\Event;
 
 class FileBrowserPlugin extends Plugin
-{ 
-  public static function getSubscribedEvents() 
+{
+  public static function getSubscribedEvents()
   {
     return [
       'onGetPageTemplates' => ['onGetPageTemplates', 0],
       'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
       'onPageInitialized' => ['getFolderStructure', 0]
     ];
-  } 
+  }
 
   /**
    * Add the templates to the list in the Admin plugin
@@ -46,19 +46,10 @@ class FileBrowserPlugin extends Plugin
 
     // Get relevant configs
     $pluginConfig = $this->grav['config']->get('plugins')["file-browser"];
-    /*
-    if ( !!(isset($page->header()->file_browser)) ) {
-      $pageConfig = $page->header()->file_browser;
-    } else {
-      $pageConfig = array("enabled"=>true);
-    }
-    */
     $pageConfig = isset($page->header()->file_browser) ? $page->header()->file_browser : array("enabled"=>true);
 
     // Combine them, preferring the page config
     $config = array_merge($pluginConfig, $pageConfig);
-
-    $this->grav['debugger']->addMessage($config);
 
     // Load the header configuration with default
     $filesDir = isset($config["source"]) ? $config["source"] : "user://files";
@@ -79,16 +70,13 @@ class FileBrowserPlugin extends Plugin
     } else {
       $this->grav["twig"]->twig_vars["fileBrowserContent"] = getFolderStructure($path, $filters);
     }
-
-    //$this->grav['debugger']->addMessage("message");
   }
-
 }
 
 
 /**
  * getFolderStructure returns an array describing the structure
- * 
+ *
  * Files are stored as an array: ["file name", "file location"]
  * Folders are stored as an array: ["folder name", [folder contents]]
  */
@@ -98,7 +86,7 @@ function getFolderStructure($path, $filters) {
   $folderContents = scanFolder($path, $filters);
   $folderList = $folderContents[0];
   $fileList = $folderContents[1];
-  
+
   foreach ($folderList as $folder) {
     array_push($structure, [$folder[0], getFolderStructure($folder[1], $filters)]);
   }

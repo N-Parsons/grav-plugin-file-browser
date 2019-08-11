@@ -1,3 +1,12 @@
+# v0.2.0
+##  12-08-2019
+
+1. [](#improved)
+    * Improved thumbnail generation.
+    * Thumbnail types are now handled via the site config.
+2. [](#bugfix)
+    * Spaces in file/folder names are now supported.
+
 # v0.1.3
 ##  08-08-2019
 

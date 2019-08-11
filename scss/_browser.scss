@@ -43,6 +43,13 @@ $hover-lighten-amount: 15%;
     // Set font-size here to work with JS/SVG FA Icons
     font-size: 4rem;
 
+    .thumbnail {
+      height: 4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     i {
       display: block;
     }

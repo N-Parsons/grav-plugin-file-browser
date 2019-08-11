@@ -15,8 +15,6 @@ en:
     COLOURISE_ICONS: "Colourise icons"
     COLOURISE_ICONS_HELP: "Add meaningful colours file icons, depending on their file types (eg. red for PDFs)"
     SHOW_THUMBNAILS: "Show thumbnails"
-    THUMBNAIL_TYPES: "Thumbnail types"
-    THUMBNAIL_TYPES_HELP: "Comma separated list of file-types to generate thumbnails for"
     BASE_TO_EXTEND: "Base template to extend"
     SHOW_HIDDEN_FILES: "Show hidden files"
     FILE_ICONS: "File icons"
