@@ -18,7 +18,7 @@
 
   {% set subfolders = [] %}
 
-  {% set dirMedia = media_directory(content|last|last|dirname) %}
+  {% set dirMedia = media_directory(pathinfo(content|last|last)["dirname"]) %}
 
   <div class="{{ browserClass }}" id="{{ browserId }}">
 
@@ -61,7 +61,9 @@
 {% macro folderItem(name, folderId) %}
   <div class="item">
     <div class="folder" data-folder-id="{{ folderId }}">
-      <i class="fas fa-folder"></i>
+      <div class="thumbnail">
+        <i class="file-icon fas fa-folder"></i>
+      </div>
       <span class="filename">{{ name }}</span>
     </div>
   </div>
@@ -96,13 +98,14 @@
   <div class="item">
     <a class="file" href="{{ url }}" target="_blank">
       {# Need to check the file "type" because bmp and tiff files aren't supported #}
-      {% if showThumbnails and fileMedia["mime"]|starts_with("image") and fileMedia["type"] is not same as("file") %}
-        <div class="thumbnail">
+      <div class="thumbnail">
+        {% if showThumbnails and fileMedia["mime"]|starts_with("image") and fileMedia["type"] is not same as("file") %}
           {{ fileMedia.thumbnailExists() ? fileMedia.getThumbnail().html() : fileMedia.cropResize(100,100).html() }}
-        </div>
-      {% else %}
-        <i class="{{ iconWeight }} {{ fileIcon }}"></i>
-      {% endif %}
+
+        {% else %}
+          <i class="file-icon {{ iconWeight }} {{ fileIcon }}"></i>
+        {% endif %}
+      </div>
 
       <span class="filename">{{ name }}</span>
     </a>

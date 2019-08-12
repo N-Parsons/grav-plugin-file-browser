@@ -1,3 +1,9 @@
+# v0.2.1
+##  12-08-2019
+
+1. [](#bugfix)
+    * Fix compatibility with the 'embed-fontawesome' plugin.
+
 # v0.2.0
 ##  12-08-2019
 

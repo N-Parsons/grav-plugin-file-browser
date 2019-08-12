@@ -50,10 +50,6 @@ $hover-lighten-amount: 15%;
       align-items: center;
     }
 
-    i {
-      display: block;
-    }
-
     .filename {
       // Set the text size here to get not be huge!
       font-size: 1rem;
@@ -79,15 +75,26 @@ $hover-lighten-amount: 15%;
     }
   }
 
-  .file {
+  .file, .folder {
     // Fix extra spacing around image
     .thumbnail {
       line-height: 0;
+
+      img {
+        max-height: 4rem;
+        max-width: 7rem;
+      }
     }
 
-    img {
-      max-height: 4rem;
-      max-width: 7rem;
+    .thumbnail {
+      margin: auto 0;
+      width: 100%;
+      text-align: center;
+
+      .file-icon {
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 }
@@ -160,7 +167,7 @@ $hover-lighten-amount: 15%;
 
     cursor: pointer;
 
-    i, .icon {
+    .file-icon {
       display: block;
       font-size: 2rem;
       width: 2rem;
@@ -168,7 +175,7 @@ $hover-lighten-amount: 15%;
     }
 
     .filename {
-      margin-top: 0rem;
+      margin-top: 0;
       margin-left: 0.5rem;
       display: block;
       line-height: 1.15;
@@ -181,12 +188,17 @@ $hover-lighten-amount: 15%;
     }
   }
 
-  .file {
+  .file, .folder {
     .thumbnail {
       margin: auto 0;
       width: 2rem;
       max-height: 2rem;
       text-align: center;
+
+      .file-icon {
+        height: 100%;
+        width: 100%;
+      }
     }
 
     img {
@@ -196,3 +208,6 @@ $hover-lighten-amount: 15%;
   }
 }
 
+.file-icon {
+  margin-right: 0;
+}
