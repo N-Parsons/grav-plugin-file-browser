@@ -1,3 +1,9 @@
+# v0.2.2
+##  12-08-2019
+
+1. [](#bugfix)
+    * Handle cases where folders only contain folders.
+
 # v0.2.1
 ##  12-08-2019
 

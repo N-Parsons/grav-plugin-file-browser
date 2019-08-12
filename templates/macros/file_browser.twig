@@ -18,7 +18,10 @@
 
   {% set subfolders = [] %}
 
-  {% set dirMedia = media_directory(pathinfo(content|last|last)["dirname"]) %}
+  {# Handle cases where its folder containing only folders  #}
+  {% if content|last|last is not iterable %}
+    {% set dirMedia = media_directory(pathinfo(content|last|last)["dirname"]) %}
+  {% endif %}
 
   <div class="{{ browserClass }}" id="{{ browserId }}">
 
@@ -100,7 +103,7 @@
       {# Need to check the file "type" because bmp and tiff files aren't supported #}
       <div class="thumbnail">
         {% if showThumbnails and fileMedia["mime"]|starts_with("image") and fileMedia["type"] is not same as("file") %}
-          {{ fileMedia.thumbnailExists() ? fileMedia.getThumbnail().html() : fileMedia.cropResize(100,100).html() }}
+          {{ (fileMedia.thumbnailExists() ? fileMedia.getThumbnail().html() : fileMedia.cropResize(100,100).html())|raw }}
 
         {% else %}
           <i class="file-icon {{ iconWeight }} {{ fileIcon }}"></i>
