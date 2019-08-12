@@ -18,20 +18,22 @@
 
   {% set subfolders = [] %}
 
+  {% set dirMedia = media_directory(content|last|last|dirname) %}
+
   <div class="{{ browserClass }}" id="{{ browserId }}">
 
   {% for item in content %}
     {% set name = item[0] %}
-    {% set content = item[1] %}
+    {% set url = item[1] %}
 
-    {% if content is iterable %}
+    {% if url is iterable %}
       {% set folderId = self.getFolderId(name, folderDepth)|trim %}
-      {% set subfolders = subfolders|merge([[folderId, content]]) %}
+      {% set subfolders = subfolders|merge([[folderId, url]]) %}
 
       {{ self.folderItem(name, folderId) }}
 
     {% else %}
-      {{ self.fileItem(name, content, options) }}
+      {{ self.fileItem(name, url, dirMedia[name], options) }}
 
     {% endif %}
 
@@ -66,10 +68,9 @@
 {% endmacro %}
 
 
-{% macro fileItem(name, url, options = {}) %}
+{% macro fileItem(name, url, fileMedia, options = {}) %}
   {% set iconWeight = options["icon_weight"]|default("fas") %}
   {% set showThumbnails = options["show_thumbnails"]|default(false) %}
-  {% set thumbnailTypes = options["thumbnail_types"]|default("") %}
 
   {% set pathInfo = pathinfo(url) %}
   {% set extension = pathInfo["extension"] %}
@@ -94,10 +95,10 @@
 
   <div class="item">
     <a class="file" href="{{ url }}" target="_blank">
-
-      {% if showThumbnails and extension in thumbnailTypes|replace({" ": ""})|split(",") %} {# as above re: 'map' #}
+      {# Need to check the file "type" because bmp and tiff files aren't supported #}
+      {% if showThumbnails and fileMedia["mime"]|starts_with("image") and fileMedia["type"] is not same as("file") %}
         <div class="thumbnail">
-          {{ ("![](/"~url~"?cropResize(100,100))")|markdown|striptags("<img>")|raw }}
+          {{ fileMedia.thumbnailExists() ? fileMedia.getThumbnail().html() : fileMedia.cropResize(100,100).html() }}
         </div>
       {% else %}
         <i class="{{ iconWeight }} {{ fileIcon }}"></i>
