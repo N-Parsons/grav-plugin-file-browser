@@ -1,3 +1,9 @@
+# v0.2.3
+##  15-08-2019
+
+1. [](#bugfix)
+    * Prepend base url to get true paths for files.
+
 # v0.2.2
 ##  12-08-2019
 
