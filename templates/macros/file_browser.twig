@@ -99,7 +99,7 @@
   {% endfor %}
 
   <div class="item">
-    <a class="file" href="{{ url }}" target="_blank">
+    <a class="file" href="{{ options["base_url"] }}/{{ url }}" target="_blank">
       {# Need to check the file "type" because bmp and tiff files aren't supported #}
       <div class="thumbnail">
         {% if showThumbnails and fileMedia["mime"]|starts_with("image") and fileMedia["type"] is not same as("file") %}
