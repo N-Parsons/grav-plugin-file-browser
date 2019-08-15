@@ -49,9 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const $fileBrowser = document.querySelector('.file-browser');
 
   // Get all navigation buttons
-  const $navBack = $fileBrowser.querySelector('#file-nav-back')
-  const $navForward = $fileBrowser.querySelector('#file-nav-forward')
-  const $navUp = $fileBrowser.querySelector('#file-nav-up')
+  const $navBack = $fileBrowser.querySelector('#file-nav-back');
+  const $navForward = $fileBrowser.querySelector('#file-nav-forward');
+  const $navUp = $fileBrowser.querySelector('#file-nav-up');
+
+  // Get the sorting button
+  const $sortButton = $fileBrowser.querySelector('.sorting .button');
+  const $sortIcons = $fileBrowser.querySelectorAll('.sorting .button .button-icon');
 
   // Get all "view buttons" elements
   const $viewButtons = Array.prototype.slice.call($fileBrowser.querySelectorAll('.view .button'), 0);
@@ -177,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   $navUp.addEventListener('click', () => {
-    // Get the current path and determin the parent
+    // Get the current path and determine the parent
     let path = navHistory.current().split(idSeparator);
     let parentId = path.slice(0, -1).join(idSeparator);
 
@@ -199,4 +203,26 @@ document.addEventListener('DOMContentLoaded', () => {
       $navUp.classList.remove('is-active');
     }
   });
+
+
+  // Add listener to the sorting button
+  if ( $sortButton !== null ) {
+    $sortButton.addEventListener('click', () => {
+      // Toggle the activity of icons
+      $sortIcons.forEach( icon => {
+        icon.classList.toggle("is-active");
+      });
+
+      // Reorder everything...
+      $browserViews.forEach( browser => {
+        // Get the files and folders
+        $folders = browser.querySelectorAll('.folder-item');
+        $files = browser.querySelectorAll('.file-item');
+
+        // Rewrite the content with the sorted
+        browser.append(...Array.from($files).reverse());
+        browser.prepend(...Array.from($folders).reverse());
+      });
+    });
+  }
 });

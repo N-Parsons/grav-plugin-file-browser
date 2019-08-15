@@ -20,6 +20,10 @@
   &:first-child {
     margin-left: 0;
   }
+
+  .button-icon.sort-alpha.is-active {
+    display: none;
+  }
 }
 
 
@@ -42,7 +46,7 @@
   }
 }
 
-.view .button {
+.view .button, .sorting .button {
   border: 1px solid #666;
   background: white;
   cursor: pointer;
@@ -52,6 +56,14 @@
   &:hover {
     border: 1px solid black;
     box-shadow: 0 0 3px #666;
+  }
+}
+
+.sorting .button {
+  margin-right: 0.5rem;
+
+  .button-icon {
+    margin: 0 !important;
   }
 }
 
@@ -76,4 +88,9 @@
     border: 1px solid #666;
     box-shadow: none;
   }
+}
+
+
+.spacer {
+  flex-grow: 1;
 }

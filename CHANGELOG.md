@@ -1,3 +1,9 @@
+# v0.2.5
+##  16-08-2019
+
+1. [](#new)
+    * Added requested file sorting functionality.
+
 # v0.2.4
 ##  16-08-2019
 

@@ -62,7 +62,7 @@
 
 
 {% macro folderItem(name, folderId) %}
-  <div class="item">
+  <div class="item folder-item">
     <div class="folder" data-folder-id="{{ folderId }}">
       <div class="thumbnail">
         <i class="file-icon fas fa-folder"></i>
@@ -98,7 +98,7 @@
     {% endif %}
   {% endfor %}
 
-  <div class="item">
+  <div class="item file-item">
     <a class="file" href="{{ options["base_url"] }}/{{ url }}" target="_blank">
       {# Need to check the file "type" because bmp and tiff files aren't supported #}
       <div class="thumbnail">
