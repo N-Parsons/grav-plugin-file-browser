@@ -51,6 +51,10 @@
 {% set view_tile = options["icon_weight"]~" fa-th-large" %}
 {% set view_list = options["icon_weight"]~" fa-list" %}
 
+{% set sort_asc = options["icon_weight"]~" "~(options["sort_icon_asc"]|default("fa-sort")) %}
+{% set sort_desc = options["icon_weight"]~" "~(options["sort_icon_desc"]|default("fa-sort")) %}
+
+
 {# Set up additional classes for view types #}
 {% set browser_variant = "" %}
 
@@ -85,6 +89,15 @@
         <i class="button-icon {{ up_arrow }}"></i>
       </div>
     </div>
+    <div class="spacer"></div>
+    {% if options["sort_show"] %}
+      <div class="sorting">
+        <div class="button" id="sort-alpha">
+          <i class="button-icon sort-alpha is-active {{ sort_asc }}" title="Sort ascending"></i>
+          <i class="button-icon sort-alpha {{ sort_desc }}" title="Sort descending"></i>
+        </div>
+      </div>
+    {% endif %}
     <div class="view">
       <div class="button" id="tile-view">
         <i class="button-icon {{ view_tile }}" title="Tile view"></i>
