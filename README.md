@@ -44,6 +44,13 @@ By default, the plugin is configured to source files from `user://files`, which 
 - `use_alt_arrows`: (bool) Whether to use `fa-arrow-alt-*` for navigation controls.
 - `icon_weight`: (`fas`/`far`/`fal`) Font Awesome variant to use.
 
+
+#### File sorting
+
+- `sort_show`: (bool) Whether to use `fa-arrow-alt-*` for navigation controls.
+- `sort_icon_asc`: (text) FA icon to use for sorting ascending (A->Z).
+- `sort_icon_desc`: (text) FA icon to use for sorting descending (Z->A).
+
 #### File icons
 
 - `file_icon_default`: (text) Default icon to use for files.
