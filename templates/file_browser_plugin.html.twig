@@ -55,7 +55,7 @@
 {% set browser_variant = "" %}
 
 {% if options["default_view"] is same as("list") %}
-  {% set browser_variant = "list-view" %}
+  {% set browser_variant = " list-view" %}
   {% set view_list = view_list~" is-active" %}
 {% else %}
   {% set view_tile = view_tile~" is-active" %}
