@@ -1,3 +1,9 @@
+# v0.2.4
+##  16-08-2019
+
+1. [](#bugfix)
+    * Fix issue with class for list-view as default.
+
 # v0.2.3
 ##  15-08-2019
 
