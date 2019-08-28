@@ -93,11 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
       $browserFolders.forEach ( folder => {
         folder.addEventListener('click', () => {
           // Mark the current browser as inactive
-          $fileBrowser.querySelector('#' + browser.id).classList.remove('is-active');
+          $fileBrowser.querySelector(String('#' + browser.id).replace('.', '\\.')).classList.remove('is-active');
 
           // Mark the folder target as active
           let browserId = browser.id + idSeparator + folder.dataset.folderId;
-          $fileBrowser.querySelector('#' + browserId).classList.add('is-active');
+          $fileBrowser.querySelector(String('#' + browserId).replace('.', '\\.')).classList.add('is-active');
 
           // Get the folder name and path
           let folderName = folder.querySelector('.filename').innerText;
@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Deactivate the current view, navigate back, then activate the previous view
-    $fileBrowser.querySelector('#' + navHistory.current()).classList.remove('is-active');
+    $fileBrowser.querySelector(String('#' + navHistory.current()).replace('.', '\\.')).classList.remove('is-active');
     navHistory.nav_back();
-    $fileBrowser.querySelector('#' + navHistory.current()).classList.add('is-active');
+    $fileBrowser.querySelector(String('#' + navHistory.current()).replace('.', '\\.')).classList.add('is-active');
 
     // Enable the forward nav button
     $navForward.classList.add('is-active');
@@ -157,9 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Deactivate the current view, navigate forward, then activate the next view
-    $fileBrowser.querySelector('#' + navHistory.current()).classList.remove('is-active');
+    $fileBrowser.querySelector(String('#' + navHistory.current()).replace('.', '\\.')).classList.remove('is-active');
     navHistory.nav_forward();
-    $fileBrowser.querySelector('#' + navHistory.current()).classList.add('is-active');
+    $fileBrowser.querySelector(String('#' + navHistory.current()).replace('.', '\\.')).classList.add('is-active');
 
     // Enable the backward nav button
     $navBack.classList.add('is-active');
@@ -187,8 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // If the parentId is non-empty, switch the active statii
     if ( parentId ) {
-      $fileBrowser.querySelector('#' + navHistory.current()).classList.remove('is-active');
-      $fileBrowser.querySelector('#' + parentId).classList.add('is-active');
+      $fileBrowser.querySelector(String('#' + navHistory.current()).replace('.', '\\.')).classList.remove('is-active');
+      $fileBrowser.querySelector(String('#' + parentId).replace('.', '\\.')).classList.add('is-active');
 
       // Get the parent path
       // Slice two off to remove trailing '/'
