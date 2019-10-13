@@ -25,6 +25,23 @@
 
   <div class="{{ browserClass }}" id="{{ browserId }}">
 
+  {# Reverse the content order if the option is set #}
+  {% if options["sort_reverse"] %}
+    {% set folders = {} %}
+    {% set files = {} %}
+
+    {% for item in content %}
+      {% if item[1] is iterable %}
+        {% set folders = folders|merge([item]) %}
+      {% else %}
+        {% set files = files|merge([item]) %}
+      {% endif %}
+    {% endfor %}
+
+    {% set content = (folders|reverse)|merge(files|reverse) %}
+  {% endif %}
+
+  {# Process the content #}
   {% for item in content %}
     {% set name = item[0] %}
     {% set url = item[1] %}

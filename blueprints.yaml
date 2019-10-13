@@ -116,6 +116,17 @@ form:
           validate:
             type: bool
 
+        sort_reverse:
+          type: toggle
+          label: PLUGIN_FILE_BROWSER.SORT_REVERSE
+          highlight: 1
+          default: 0
+          options:
+            1: PLUGIN_ADMIN.ENABLED
+            0: PLUGIN_ADMIN.DISABLED
+          validate:
+            type: bool
+
         sort_icon_asc:
           type: text
           label: PLUGIN_FILE_BROWSER.SORT_ASCENDING

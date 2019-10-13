@@ -9,6 +9,9 @@ base_to_extend: partials/base.html.twig
 use_alt_arrows: false
 icon_weight: fas
 
+sort_show: true
+sort_reverse: false
+
 file_icon_default: fa-file-alt
 show_thumbnails: true
 thumbnail_types: 'png, jpg, jpeg, gif, bmp, svg'

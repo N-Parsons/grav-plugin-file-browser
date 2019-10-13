@@ -30,6 +30,7 @@ en:
     SORT_SHOW: "Show sorting button"
     SORT_ASCENDING: "Ascending icon"
     SORT_DESCENDING: "Descending icon"
+    SORT_REVERSE: "Reverse default sort direction"
 
     FILE_ICONS: "File icons"
     FILE_ICON_DEFAULT: "Default file icon"
