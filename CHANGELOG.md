@@ -1,5 +1,5 @@
 # v0.2.6
-##  16-08-2019
+##  13-10-2019
 
 1. [](#new)
     * Added option for disabling sort button.
@@ -20,7 +20,7 @@
     * Fix issue with class for list-view as default.
 
 # v0.2.3
-##  13-10-2019
+##  15-08-2019
 
 1. [](#bugfix)
     * Prepend base url to get true paths for files.
