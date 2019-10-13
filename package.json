@@ -1,6 +1,6 @@
 {
   "name": "file-browser",
-  "version": "0.1.0",
+  "version": "0.2.6",
   "description": "File browser plugin for directory listing in Grav websites.",
   "scripts": {
     "css-build": "node-sass --source-map true --source-map-embed true --recursive --output css-compiled scss/file-browser.scss",
