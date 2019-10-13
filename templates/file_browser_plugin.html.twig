@@ -93,8 +93,8 @@
     {% if options["sort_show"] %}
       <div class="sorting">
         <div class="button" id="sort-alpha">
-          <i class="button-icon sort-alpha is-active {{ sort_asc }}" title="Sort ascending"></i>
-          <i class="button-icon sort-alpha {{ sort_desc }}" title="Sort descending"></i>
+          <i class="button-icon sort-alpha {{ options["sort_reverse"] ? "" : "is-active" }} {{ sort_asc }}" title="Sort ascending"></i>
+          <i class="button-icon sort-alpha {{ options["sort_reverse"] ? "is-active" : "" }} {{ sort_desc }}" title="Sort descending"></i>
         </div>
       </div>
     {% endif %}
