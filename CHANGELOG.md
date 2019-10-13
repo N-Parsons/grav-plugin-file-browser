@@ -1,3 +1,12 @@
+# v0.2.6
+##  13-10-2019
+
+1. [](#new)
+    * Added option for disabling sort button.
+    * Added option for default reversal of sort order.
+2. [](#bugfix)
+    * Fixes issue caused by dots in folder names.
+
 # v0.2.5
 ##  16-08-2019
 
