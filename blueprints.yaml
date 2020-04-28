@@ -154,6 +154,7 @@ form:
     file_icons:
       type: section
       title: PLUGIN_FILE_BROWSER.FILE_ICONS
+      text: PLUGIN_FILE_BROWSER.FILE_ICONS_TEXT
       fields:
         file_icon_default:
           type: text

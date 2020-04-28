@@ -37,7 +37,7 @@ en:
     SORT_REVERSE: "Reverse default sort direction"
 
     FILE_ICONS: "File icons"
-    FILE_ICONS_TEXT: "If you are using FA4, you will need to redefine all of these. You can search for icons at: https://fontawesome.com/v4.7.0/icons/"
+    FILE_ICONS_TEXT: "If you are using FA4, you will need to redefine all of these. You can search for suitable icons at: https://fontawesome.com/v4.7.0/icons/"
     FILE_ICON_DEFAULT: "Default file icon"
     FILE_ICONS_SPECIFIC: "Extension-specific icons"
     FILE_ICON_TYPES: "Icon types"
