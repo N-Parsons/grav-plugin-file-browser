@@ -24,6 +24,12 @@
 
 {% set options = default_config|merge(plugin_config)|merge(page_config) %}
 
+{# Get the icon weight (with FA4 compatibility) #}
+{% if options["fa4_compatability"] %}
+  {% set iconWeight = "fa" %}
+{% else %}
+  {% set iconWeight = options["icon_weight"]|default("fas") %}
+{% endif %}
 
 {# Load assets #}
 {% if options["built_in_css"] %}
@@ -31,28 +37,28 @@
 {% endif %}
 
 {% if options["load_font_awesome"] %}
-  {# Below kit provides the latest Font Awesome Free as webfonts #}
+  {# Below kit provides the Font Awesome Free as webfonts #}
   {% do assets.addCss("https://use.fontawesome.com/releases/v5.8.1/css/all.css") %}
 {% endif %}
 
 {# Set icon styles #}
 {% if options["use_alt_arrows"] %}
-  {% set back_arrow = options["icon_weight"]~" fa-arrow-alt-left" %}
-  {% set forward_arrow = options["icon_weight"]~" fa-arrow-alt-right" %}
-  {% set up_arrow = options["icon_weight"]~" fa-arrow-alt-up" %}
+  {% set back_arrow = iconWeight~" fa-arrow-alt-left" %}
+  {% set forward_arrow = iconWeight~" fa-arrow-alt-right" %}
+  {% set up_arrow = iconWeight~" fa-arrow-alt-up" %}
 
 {% else %}
-  {% set back_arrow = options["icon_weight"]~" fa-arrow-left" %}
-  {% set forward_arrow = options["icon_weight"]~" fa-arrow-right" %}
-  {% set up_arrow = options["icon_weight"]~" fa-arrow-up" %}
+  {% set back_arrow = iconWeight~" fa-arrow-left" %}
+  {% set forward_arrow = iconWeight~" fa-arrow-right" %}
+  {% set up_arrow = iconWeight~" fa-arrow-up" %}
 
 {% endif %}
 
-{% set view_tile = options["icon_weight"]~" fa-th-large" %}
-{% set view_list = options["icon_weight"]~" fa-list" %}
+{% set view_tile = iconWeight~" fa-th-large" %}
+{% set view_list = iconWeight~" fa-list" %}
 
-{% set sort_asc = options["icon_weight"]~" "~(options["sort_icon_asc"]|default("fa-sort")) %}
-{% set sort_desc = options["icon_weight"]~" "~(options["sort_icon_desc"]|default("fa-sort")) %}
+{% set sort_asc = iconWeight~" "~(options["sort_icon_asc"]|default("fa-sort")) %}
+{% set sort_desc = iconWeight~" "~(options["sort_icon_desc"]|default("fa-sort")) %}
 
 
 {# Set up additional classes for view types #}

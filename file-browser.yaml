@@ -1,6 +1,7 @@
 enabled: true
 built_in_css: true
 load_font_awesome: false
+fa4_compatability: false
 source: 'user://files'
 show_hidden_files: false
 default_view: tile

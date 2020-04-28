@@ -1,3 +1,9 @@
+# v0.2.7
+##  28-04-2020
+
+1. [](#improved)
+    * Improved support for Font Awesome 4.
+
 # v0.2.6
 ##  13-10-2019
 

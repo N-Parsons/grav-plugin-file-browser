@@ -34,6 +34,7 @@ By default, the plugin is configured to source files from `user://files`, which 
 - `enabled`: (bool) Plugin status.
 - `built_in_css`: (bool) Whether to load the built-in CSS.
 - `load_font_awesome`: (bool) Whether to load Font Awesome Free on the file browser page.
+- `fa4_compatability`: (bool) Whether to set the prefix to `fa`.
 - `source`: (text) URI for file directory (eg. `user://files`).
 - `show_hidden_files`: (bool) Whether to show hidden files.
 - `default_view`: (`tile`/`list`) Default view for the file browser.

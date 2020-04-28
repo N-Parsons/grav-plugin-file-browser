@@ -1,7 +1,13 @@
 {% macro folderContents(content, options = {}, folderId = "rootFolder", parentId = "", folderDepth = 0) %}
   {% import _self as self %}
 
-  {% set iconWeight = options["icon_weight"]|default("fas") %}
+  {# Get the icon weight (with FA4 compatibility) #}
+  {% if options["fa4_compatability"] %}
+    {% set iconWeight = "fa" %}
+  {% else %}
+    {% set iconWeight = options["icon_weight"]|default("fas") %}
+  {% endif %}
+
   {% set showThumbnails = options["show_thumbnails"]|default(false) %}
 
   {% if parentId %}

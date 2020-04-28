@@ -1,5 +1,5 @@
 name: File Browser
-version: 0.2.6
+version: 0.2.7
 description: File browser plugin providing directory listing
 icon: folder
 author:
@@ -38,9 +38,22 @@ form:
 
     load_font_awesome:
       type: toggle
+      help: PLUGIN_FILE_BROWSER.LOAD_FONT_AWESOME_HELP
       label: PLUGIN_FILE_BROWSER.LOAD_FONT_AWESOME
       highlight: 1
       default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    fa4_compatability:
+      type: toggle
+      help: PLUGIN_FILE_BROWSER.FA4_COMPATIBILITY_HELP
+      label: PLUGIN_FILE_BROWSER.FA4_COMPATIBILITY
+      highlight: 1
+      default: 0
       options:
         1: PLUGIN_ADMIN.ENABLED
         0: PLUGIN_ADMIN.DISABLED
@@ -99,6 +112,7 @@ form:
             "fas": PLUGIN_FILE_BROWSER.ICON_WEIGHT_FAS
             "far": PLUGIN_FILE_BROWSER.ICON_WEIGHT_FAR
             "fal": PLUGIN_FILE_BROWSER.ICON_WEIGHT_FAL
+            "fad": PLUGIN_FILE_BROWSER.ICON_WEIGHT_FAD
 
     sort_section:
       type: section
@@ -135,7 +149,7 @@ form:
         sort_icon_desc:
           type: text
           label: PLUGIN_FILE_BROWSER.SORT_DESCENDING
-          placeholder: 'eg. fa-sort-alpha-down-alt'
+          placeholder: 'eg. fa-sort-alpha-up'
 
     file_icons:
       type: section
