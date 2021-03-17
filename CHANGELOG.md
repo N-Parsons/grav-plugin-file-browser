@@ -1,3 +1,9 @@
+# v0.2.8
+##  17-03-2021
+
+1. [](#bugfix)
+    * Remove duplicate key (which caused errors in Admin).
+
 # v0.2.7
 ##  28-04-2020
 
