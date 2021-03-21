@@ -14,7 +14,7 @@ en:
     ICON_WEIGHT_FAS: "Solid (fas)"
     ICON_WEIGHT_FAR: "Regular (far)"
     ICON_WEIGHT_FAL: "Light (fal)"
-    ICON_WEIGHT_FAL: "Duotone (fad)"
+    ICON_WEIGHT_FAD: "Duotone (fad)"
 
     DEFAULT_VIEW: "Default view"
     TILE_VIEW: "Tile"
