@@ -75,6 +75,56 @@ file_browser:
 This is mostly for people to be able to have multiple pages with browsers for different directories.
 
 
+## Server configuration
+
+Grav's default webserver configurations block access to specific file types for security reasons - you don't want people to be able to access arbitrary and potentially sensitive files!
+Therefore, if you want users to be able to access these file types, you will need to update your webserver configuration.
+
+### Apache
+
+Open `.htaccess` in your grav root directory and find these line:
+
+```htaccess
+# Block access to specific file types for these user folders
+RewriteRule ^(user)/(.*)\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ error [F]
+# Block all direct access to .md files:
+RewriteRule \.md$ error [F]
+```
+
+To enable access to files in your `files` folder, update the line as follows. The second rule is optional, but improves security by continuing to block access to scripts in your `user/files` folder. 
+
+```htaccess
+# Block access to specific file types for these user folders
+RewriteRule ^(user)/((?!files).*)\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ error [F]
+
+# Block access to scripts in the user/files folder
+RewriteRule ^(user)/(files)/.*\.(php|pl|py|cgi|twig|sh|bat)$ error [F]
+
+# Block access to all .md files, except in user/files
+RewriteRule ^(?!user/files/).*\.md$ error [F]
+```
+
+
+### Nginx
+
+Open your nginx configuration file and find this line:
+
+```nginx
+# deny running scripts inside user folder
+location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 403; }
+```
+
+To enable access to files in your `files` folder, update the line as follows. The second rule is optional, but improves security by continuing to block access to scripts in your `user/files` folder.
+
+```nginx
+# deny running scripts inside user folder
+location ~* /user/(?!files).*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 403; }
+
+# block access to scripts in the user/files folder
+location ~* /user/files/.*\.(php|pl|py|cgi|twig|sh|bat)$ { return 403; }
+```
+
+
 ## To Do
 
 - [ ] Build an admin panel for managing files.
